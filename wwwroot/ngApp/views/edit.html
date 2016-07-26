@@ -1,0 +1,24 @@
+﻿<h1>Edit post:</h1>
+<form id="postForm" ng-submit="controller.savePost()">
+    <div>
+        <label>Post title:</label>
+        <input type="text" ng-model="controller.post.topic" />
+    </div>
+    <div>
+        <label>Category</label>
+        <select name="categoryList" form="postForm" ng-model="controller.post.category">
+            <option value="Concept Art">Concept Art</option>
+            <option value="Skin Idea">Skin Idea</option>
+            <option value="General Discussion">General Discussion</option>
+        </select>
+    </div>
+    <div>
+        <label>Body</label>
+        <textarea rows="4" cols="50" name="comment" form="postForm" ng-model="controller.post.body">
+            Enter text here...
+        </textarea>
+    </div>
+    <input type="submit" value="Save" />
+    <input type="button" ng-click="controller.cancel()" value="Cancel" />
+
+</form>

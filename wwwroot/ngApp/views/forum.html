@@ -1,0 +1,53 @@
+﻿<div class="container-top">
+    <h1 class="text-center">Welcome to the LoLCollector Forums!</h1>
+
+    <div class="col-md-3 div1">
+        <a href="/forum/new" class="btn btn-primary btn-lg active">Start a new discussion</a>
+        <div class="div1">
+            Search:
+            <input type="text" ng-model="search" placeholder="Search for a post" />
+        </div>
+        <div class="div1">
+            Sort by category:
+            <select ng-model="categorySearch">
+                <option value="" disabled selected>Select a category</option>
+                <option value="">All</option>
+                <option value="Concept Art">Concept Art</option>
+                <option value="Skin Idea">Skin Idea</option>
+                <option value="General Discussion">General Discussion</option>
+            </select>
+        </div>
+    </div>
+    <br />
+
+    <div class="col-md-7">
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th><span class="glyphicon glyphicon-fire" /></th>
+                    <th>Title</th>
+                    <th>Body</th>
+                    <th>Author</th>
+                    <th>Category</th>
+                    <th>Created</th>
+                    <th>Comments</th>
+                    <th>Views</th>
+                </tr>
+            </thead>
+            <tr ng-repeat="post in controller.posts |orderBy:'timeCreated':true | filter: {topic:search, category:categorySearch}">
+                <td>
+                    <span class="glyphicon glyphicon-arrow-up" align="middle" /><br />
+                    <span align="middle">{{post.votes}}</span><br />
+                    <span class="glyphicon glyphicon-arrow-down" align="middle" />
+                </td>
+                <td><a href="/forum/{{post.id}}">{{post.topic}}</a></td>
+                <td>{{post.body}}</td>
+                <td><a href="/profile">{{post.authorName}}</a></td>
+                <td>{{post.category}}</td>
+                <td>{{post.timeCreated | date: "short"}}</td>
+                <td>{{post.commentCount}}</td>
+                <td>{{post.views}}</td>
+            </tr>
+        </table>
+    </div>
+</div>

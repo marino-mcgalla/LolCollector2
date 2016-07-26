@@ -1,0 +1,89 @@
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="SkinApp">
+
+<head>
+    <title>SkinApp</title>
+    <link href="~/css/site.css" rel="stylesheet" />
+    <link href="https://bootswatch.com/cerulean/bootstrap.min.css" rel="stylesheet" />
+    <base href="/" />
+    <style>
+        [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+            display: none !important;
+        }
+    </style>
+</head>
+
+<body style="background-color:black">
+
+    <nav ng-controller="AccountController as account" class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">LoLCollector</a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+                <ul class="nav navbar-nav">
+                    <li><a href="/forum">Forum</a></li>
+                    <li><a href="/build" ng-cloak ng-show="account.isLoggedIn()">Edit Collection</a></li>
+                    <li><a href="/login" ng-cloak ng-show="!account.isLoggedIn()">Login</a>
+                    <li> <a href="#" ng-click="account.logout()" ng-show="account.isLoggedIn()" ng-cloak>Logout</a>
+                    <li><a href="/admin" ng-cloak ng-show="account.getClaim('isAdmin')">Admin</a></li>
+                </ul>
+                <form class="navbar-form navbar-right" role="search">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                    </div>
+                    <button type="submit" class="btn btn-default">Submit</button>
+                </form>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="navbar-username" ng-show="account.isLoggedIn()">
+                    </li>
+                    <li>
+                        <a ng-show="account.isLoggedIn()" ng-cloak href="/profile">
+                            {{account.getUserName()}}'s Profile
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <ui-view></ui-view>
+
+
+    <!-- Library Files -->
+    <script src="~/lib/angular/angular.js"></script>
+    <script src="~/lib/angular-resource/angular-resource.js"></script>
+    <script src="~/lib/angular-animate/angular-animate.js"></script>
+    <script src="~/lib/angular-touch/angular-touch.js"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="~/lib/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="~/lib/angular-ui-router/release/angular-ui-router.js"></script>
+
+
+    <!-- App Files-->
+    <script src="~/ngapp/app.js"></script>
+    <script src="~/ngapp/services/services.js"></script>
+    <script src="~/ngApp/services/userService.js"></script>
+    <script src="~/ngApp/services/skinServices.js"></script>
+    <script src="~/ngApp/services/adminServices.js"></script>
+    <script src="~/ngapp/controllers/controllers.js"></script>
+    <script src="~/ngApp/controllers/forumController.js"></script>
+    <script src="~/ngApp/controllers/buildController.js"></script>
+    <script src="~/ngApp/controllers/forumDetailsController.js"></script>
+    <script src="~/ngApp/controllers/userController.js"></script>
+    <script src="~/ngApp/controllers/forumCreateController.js"></script>
+    <script src="~/ngApp/controllers/forumEditController.js"></script>
+
+    <!-- Security -->
+    <script src="~/ngapp/controllers/accountcontroller.js"></script>
+    <script src="~/ngapp/services/accountservice.js"></script>
+
+</body>
+</html>

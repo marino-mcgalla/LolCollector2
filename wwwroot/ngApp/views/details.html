@@ -1,0 +1,21 @@
+﻿<a href="/forum">Back to forum</a>
+
+<h1>{{controller.post.topic}}</h1>
+<hr />
+<h3>{{controller.post.body}}</h3>
+
+<ul>
+    <li ng-repeat="reply in controller.post.replies">{{reply.message}} {{controller.post.dateCreated | date: "shortTime"}}<a href="/forum/deleteReply">Delete</a></li>
+</ul>
+
+<form id="replyForm" ng-submit="controller.saveReply()">
+    <div>
+        <input ng-model="controller.reply.message" />
+        <input type="submit" value="Save" />
+        <input type="button" ng-click="controller.cancel()" value="Cancel" />
+    </div>
+    <div>
+        <a href="/forum/edit/{{controller.post.id}}" class="btn btn-default" ng-show="controller.user.userName==controller.post.authorName">Edit</a>
+        <a href="/forum/delete/{{controller.post.id}}" class="btn btn-default" ng-show="controller.user.userName==controller.post.authorName">Delete </a>
+    </div>
+</form>

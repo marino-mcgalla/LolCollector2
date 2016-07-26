@@ -1,0 +1,25 @@
+﻿<div class="center-div">
+    <h1>New forum post:</h1>
+    <form name="newForm" id="postForm" ng-submit="controller.savePost()">
+        <div>
+            <label>Title:</label>
+            <input type="text" class="form-control" placeholder="Add a title" ng-model="controller.post.topic" required />
+        </div>
+        <div>
+            <label>Category</label>
+            <select class="form-control" form="postForm" ng-model="controller.post.category" required>
+                <option value="" disabled selected>Select a category</option>
+                <option value="Concept Art">Concept Art</option>
+                <option value="Skin Idea">Skin Idea</option>
+                <option value="General Discussion">General Discussion</option>
+            </select>
+        </div>
+        <div>
+            <label>Body</label>
+            <textarea class="form-control" rows="3" form="postForm" ng-model="controller.post.body" required>Discuss your thoughts</textarea>
+        </div>
+        <input type="submit" class="btn btn-default" value="Create" />
+        <input type="button" class="btn btn-danger" ng-click="controller.cancel()" value="Cancel" />
+
+    </form>
+</div>

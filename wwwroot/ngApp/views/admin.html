@@ -1,0 +1,18 @@
+﻿<h1>Admin page:</h1>
+<!-- list of all registered users -->
+<h1>Users</h1>
+<ul>
+    <li ng-repeat="user in controller.users">
+        <h3>{{user.userName}}</h3>
+        <input type="button" ng-click="controller.deleteUser(user.id)" value="Delete" />
+        <h5>{{user.id}}</h5>
+    </li>
+</ul>
+<!-- list of all posts -->
+<h1>Posts</h1>
+<ul>
+    <li ng-repeat="post in controller.posts">
+        <h5>{{post.topic}}</h5>
+        <input type="button" ng-click="controller.adminDeletePost(post.id)" value="Delete" />
+    </li>
+</ul>

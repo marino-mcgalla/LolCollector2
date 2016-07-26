@@ -1,0 +1,25 @@
+﻿<!-- dismissable alert to give instructions for this page -->
+<div class="container2">
+    <div class="container">
+        <div class="alert alert-warning fade in">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Tip:</strong> This is the collection builder! To get started, just click on the skins you want to add to your collection and then hit save!
+        </div>
+    </div>
+    <!-- end alert -->
+
+    <!-- list of champions and skins -->
+    <div class="container container1">
+        <form id="collectionForm" ng-submit="controller.checkSkins()">
+            <button class="btn btn-primary float-button" type="submit">Save</button>
+            <div class="row" ng-repeat="champion in controller.champions.data.data">
+                <h3>{{champion.name}}</h3>
+                <div style="display: inline-block" ng-repeat="skin in champion.skins track by $index">
+                    <input style="display: none" name="skinCheck" type="checkbox" value="{{champion.key}}_{{skin.num}}" id="{{champion.key}}_{{skin.num}}" />
+                    <label for="{{champion.key}}_{{skin.num}}"><img style="float: left;" src="http://ddragon.leagueoflegends.com/cdn/img/champion/loading/{{champion.key}}_{{skin.num}}.jpg" height="140" width="77" /></label>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
