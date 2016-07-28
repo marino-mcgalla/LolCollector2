@@ -9,12 +9,21 @@
                 GetCurrentUser: {
                     method: 'GET',
                     url: '/api/user/getcurrentuser',
+                },
+                RemoveSkin: {
+                    method: 'DELETE',
+                    url: '/api/user/removeskin/:id'
                 }
             });
         }
         //gets currently logged in user
         getCurrentUser() {
             return this.userResource.GetCurrentUser();
+        }
+
+        removeSkin(skinId) {
+            debugger;
+            return this.userResource.RemoveSkin(skinId).$promise;
         }
     }
     angular.module('SkinApp').service('userService', UserService);

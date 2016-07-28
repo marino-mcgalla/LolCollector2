@@ -70,16 +70,14 @@ namespace SkinApp.API
             return Ok();
         }
 
-        ////DELETE api/values/5
-        //[HttpDelete("{id}")]
-        //public IActionResult RemoveSkin(int id)
-        //{
-        //    _repo.RemoveSkin(id);
-        //    return Ok();
-        //}
-
-
-
+        //DELETE api/values/5
+        [HttpDelete("{id}")]
+        [Route("removeskin")]
+        public IActionResult RemoveSkin(int skinId)
+        {
+            _repo.RemoveSkin(skinId);
+            return Ok();
+        }
 
     }
 }

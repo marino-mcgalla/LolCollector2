@@ -5,6 +5,15 @@
         constructor(private userService: SkinApp.Services.UserService) {
             this.user = userService.getCurrentUser();  //gets all of the current user's information from the server
         }
+
+        testing(id) {
+            console.log(id);
+        }
+
+        removeSkin(skinId) {
+            debugger;
+            this.userService.removeSkin(skinId);
+        }
     }
 
     export class AdminController {

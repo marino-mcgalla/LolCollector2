@@ -1,5 +1,10 @@
-﻿<h1 style="text-align: center">{{controller.user.userName}}'s collection:</h1>
+﻿<div class="container2">
+    <h1 style="text-align: center">{{controller.user.userName}}'s collection:</h1>
 
-<div>
-    <span ng-repeat="skin in controller.user.skins"><a href="http://ddragon.leagueoflegends.com/cdn/img/champion/splash/{{skin.urlString}}.jpg"><img src="http://ddragon.leagueoflegends.com/cdn/img/champion/loading/{{skin.urlString}}.jpg" /></a></span>
+        <div>
+            <span class="img-wrap" ng-repeat="skin in controller.user.skins">
+                <button ng-click="controller.removeSkin(skin.id)" class="close">&times;</button>
+                <a href="http://ddragon.leagueoflegends.com/cdn/img/champion/splash/{{skin.urlString}}.jpg"><img src="http://ddragon.leagueoflegends.com/cdn/img/champion/loading/{{skin.urlString}}.jpg" /></a>
+            </span>
+        </div>
 </div>

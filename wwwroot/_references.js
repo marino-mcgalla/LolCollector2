@@ -23,6 +23,5 @@
 /// <reference path="ngapp/controllers/usercontroller.js" />
 /// <reference path="ngapp/services/accountservice.js" />
 /// <reference path="ngapp/services/adminservices.js" />
-/// <reference path="ngapp/services/services.js" />
 /// <reference path="ngapp/services/skinservices.js" />
 /// <reference path="ngapp/services/userservice.js" />

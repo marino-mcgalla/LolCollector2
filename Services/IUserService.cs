@@ -10,5 +10,6 @@ namespace SkinApp.Services
         List<ApplicationUser> GetAllUsers();
         void DeleteUser(string id);
         void AdminDeletePost(int id);
+        void RemoveSkin(int id);
     }
 }

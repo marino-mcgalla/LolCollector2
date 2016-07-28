@@ -58,7 +58,8 @@ namespace SkinApp.Services
 
         public void RemoveSkin(int id)
         {
-
+            var skinToDelete = _repo.Query<Skin>().Where(s => s.Id == id);
+            _repo.Delete(skinToDelete);
         }
     }
 
